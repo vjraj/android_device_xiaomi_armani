@@ -21,18 +21,19 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/armani/device.mk)
 $(call inherit-product-if-exists, vendor/xiaomi/armani/armani-vendor.mk)
 
-# Inherit some common product stuff
-$(call inherit-product, vendor/xenonhd/config/common_full_phone.mk)
-
-# Root options
-WITH_SUPERSU := true
+# Inherit some common Dot files
+$(call inherit-product, vendor/dot/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_DEVICE := armani
-PRODUCT_NAME := xenonhd_armani
+PRODUCT_NAME := dot_armani
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := HM 1S
 PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=armani
+
 PRODUCT_PROPERTY_OVERRIDES += ro.xenonhd.maintainer="VjRaj"
